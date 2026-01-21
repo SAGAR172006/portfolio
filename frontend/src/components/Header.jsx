@@ -31,9 +31,10 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-2xl font-bold font-mono text-[#1A1A1A] hover:text-[#9B8BC4] transition-colors duration-300"
+            className="text-sm md:text-base lg:text-lg text-[#1A1A1A] hover:text-[#9B8BC4] transition-all duration-300 hover:scale-105"
+            style={{ fontFamily: "'VT323', monospace" }}
           >
-            SS.
+            Portfolio of Sagar Singh
           </button>
 
           {/* Desktop Navigation */}
@@ -42,16 +43,17 @@ const Header = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-[#1A1A1A] hover:text-[#9B8BC4] transition-colors duration-300 capitalize font-medium"
+                className="text-[#1A1A1A] hover:text-[#9B8BC4] transition-all duration-300 capitalize font-medium relative group"
               >
                 {item}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#9B8BC4] transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-[#1A1A1A] hover:text-[#9B8BC4] transition-colors duration-300"
+            className="md:hidden text-[#1A1A1A] hover:text-[#9B8BC4] transition-all duration-300 hover:rotate-90"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

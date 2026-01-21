@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Code2, Wrench, BookOpen, TrendingUp } from 'lucide-react';
+import { Code2, Wrench, BookOpen } from 'lucide-react';
 import { skills } from '../data/mock';
 
 const SkillCategory = ({ title, items, icon: Icon, index }) => {
@@ -16,13 +16,14 @@ const SkillCategory = ({ title, items, icon: Icon, index }) => {
       { threshold: 0.2 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -35,25 +36,30 @@ const SkillCategory = ({ title, items, icon: Icon, index }) => {
       }`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div className="bg-white border-2 border-[#1A1A1A] p-6 md:p-8 hover:shadow-xl transition-all duration-500 group hover:-translate-y-1">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 bg-[#FAF7F0] border-2 border-[#9B8BC4] group-hover:bg-[#9B8BC4] transition-colors duration-300">
-            <Icon className="text-[#1A1A1A] group-hover:text-[#FAF7F0] transition-colors duration-300" size={24} />
+      <div className="bg-white border-2 border-[#1A1A1A] p-6 md:p-8 hover:shadow-2xl transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
+        {/* Animated background on hover */}
+        <div className="absolute inset-0 bg-[#9B8BC4]/0 group-hover:bg-[#9B8BC4]/5 transition-all duration-500"></div>
+        
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-3 bg-[#FAF7F0] border-2 border-[#9B8BC4] group-hover:bg-[#9B8BC4] transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
+              <Icon className="text-[#1A1A1A] group-hover:text-[#FAF7F0] transition-colors duration-300" size={24} />
+            </div>
+            <h3 className="text-2xl font-bold text-[#1A1A1A] font-mono group-hover:text-[#9B8BC4] transition-colors duration-300">{title}</h3>
           </div>
-          <h3 className="text-2xl font-bold text-[#1A1A1A] font-mono">{title}</h3>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          {items.map((skill, idx) => (
-            <span
-              key={idx}
-              className="px-4 py-2 bg-[#FAF7F0] border border-[#9B8BC4]/30 text-[#1A1A1A] font-medium hover:bg-[#9B8BC4]/20 hover:border-[#9B8BC4] transition-all duration-300 cursor-default"
-              style={{
-                animation: isVisible ? `fadeIn 0.5s ease-out ${idx * 0.1}s both` : 'none'
-              }}
-            >
-              {skill}
-            </span>
-          ))}
+          <div className="flex flex-wrap gap-3">
+            {items.map((skill, idx) => (
+              <span
+                key={idx}
+                className="px-4 py-2 bg-[#FAF7F0] border border-[#9B8BC4]/30 text-[#1A1A1A] font-medium hover:bg-[#9B8BC4] hover:text-[#FAF7F0] hover:border-[#9B8BC4] transition-all duration-300 cursor-default hover:scale-110 hover:-rotate-2"
+                style={{
+                  animation: isVisible ? `fadeIn 0.5s ease-out ${idx * 0.1}s both` : 'none'
+                }}
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -74,13 +80,14 @@ const Skills = () => {
       { threshold: 0.2 }
     );
 
-    if (titleRef.current) {
-      observer.observe(titleRef.current);
+    const currentRef = titleRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (titleRef.current) {
-        observer.unobserve(titleRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -89,13 +96,20 @@ const Skills = () => {
     { title: 'Languages', items: skills.languages, icon: Code2 },
     { title: 'Frameworks & Libraries', items: skills.frameworks, icon: Wrench },
     { title: 'Tools & Platforms', items: skills.tools, icon: Wrench },
-    { title: 'Core Concepts', items: skills.concepts, icon: BookOpen },
-    { title: 'Currently Learning', items: skills.learning, icon: TrendingUp }
+    { title: 'Core Concepts', items: skills.concepts, icon: BookOpen }
   ];
 
   return (
-    <section id="skills" className="min-h-screen bg-[#1A1A1A] py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="skills" className="min-h-screen bg-[#1A1A1A] py-20 md:py-32 relative overflow-hidden">
+      {/* Animated grid background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(#9B8BC4 1px, transparent 1px), linear-gradient(90deg, #9B8BC4 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div
           ref={titleRef}
           className={`text-center mb-16 transform transition-all duration-1000 ${
