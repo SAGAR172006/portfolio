@@ -1,0 +1,142 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { Code2, Wrench, BookOpen, TrendingUp } from 'lucide-react';
+import { skills } from '../data/mock';
+
+const SkillCategory = ({ title, items, icon: Icon, index }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`transform transition-all duration-700 ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+      }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
+    >
+      <div className="bg-white border-2 border-[#1A1A1A] p-6 md:p-8 hover:shadow-xl transition-all duration-500 group hover:-translate-y-1">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="p-3 bg-[#FAF7F0] border-2 border-[#9B8BC4] group-hover:bg-[#9B8BC4] transition-colors duration-300">
+            <Icon className="text-[#1A1A1A] group-hover:text-[#FAF7F0] transition-colors duration-300" size={24} />
+          </div>
+          <h3 className="text-2xl font-bold text-[#1A1A1A] font-mono">{title}</h3>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {items.map((skill, idx) => (
+            <span
+              key={idx}
+              className="px-4 py-2 bg-[#FAF7F0] border border-[#9B8BC4]/30 text-[#1A1A1A] font-medium hover:bg-[#9B8BC4]/20 hover:border-[#9B8BC4] transition-all duration-300 cursor-default"
+              style={{
+                animation: isVisible ? `fadeIn 0.5s ease-out ${idx * 0.1}s both` : 'none'
+              }}
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Skills = () => {
+  const [titleVisible, setTitleVisible] = useState(false);
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (titleRef.current) {
+      observer.observe(titleRef.current);
+    }
+
+    return () => {
+      if (titleRef.current) {
+        observer.unobserve(titleRef.current);
+      }
+    };
+  }, []);
+
+  const skillCategories = [
+    { title: 'Languages', items: skills.languages, icon: Code2 },
+    { title: 'Frameworks & Libraries', items: skills.frameworks, icon: Wrench },
+    { title: 'Tools & Platforms', items: skills.tools, icon: Wrench },
+    { title: 'Core Concepts', items: skills.concepts, icon: BookOpen },
+    { title: 'Currently Learning', items: skills.learning, icon: TrendingUp }
+  ];
+
+  return (
+    <section id="skills" className="min-h-screen bg-[#1A1A1A] py-20 md:py-32">
+      <div className="max-w-7xl mx-auto px-6">
+        <div
+          ref={titleRef}
+          className={`text-center mb-16 transform transition-all duration-1000 ${
+            titleVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+        >
+          <h2 className="text-4xl md:text-6xl font-bold text-[#FAF7F0] mb-4 font-mono">
+            Technical Skills
+          </h2>
+          <p className="text-[#FAF7F0]/70 text-lg max-w-2xl mx-auto">
+            Constantly evolving and learning new technologies
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {skillCategories.map((category, index) => (
+            <SkillCategory
+              key={category.title}
+              title={category.title}
+              items={category.items}
+              icon={category.icon}
+              index={index}
+            />
+          ))}
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default Skills;
