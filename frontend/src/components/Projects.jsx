@@ -146,20 +146,25 @@ const Projects = () => {
       { threshold: 0.2 }
     );
 
-    if (titleRef.current) {
-      observer.observe(titleRef.current);
+    const currentRef = titleRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (titleRef.current) {
-        observer.unobserve(titleRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
 
   return (
-    <section id="projects" className="min-h-screen bg-[#FAF7F0] py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="projects" className="min-h-screen bg-[#FAF7F0] py-20 md:py-32 relative overflow-hidden">
+      {/* Animated background shapes */}
+      <div className="absolute top-20 right-20 w-64 h-64 bg-[#B4A4D6]/5 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#9B8BC4]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div
           ref={titleRef}
           className={`text-center mb-16 transform transition-all duration-1000 ${
@@ -182,7 +187,7 @@ const Projects = () => {
 
         {/* Future Projects Placeholder */}
         <div className="mt-12 text-center">
-          <p className="text-[#9B8BC4] font-mono italic">
+          <p className="text-[#9B8BC4] font-mono italic animate-pulse">
             More exciting projects coming soon...
           </p>
         </div>
