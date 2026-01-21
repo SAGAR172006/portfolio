@@ -48,28 +48,39 @@ const ProjectCard = ({ project, index }) => {
       style={{ transitionDelay: `${index * 200}ms` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
     >
-      <div className="bg-white border-2 border-[#1A1A1A] overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+      <div className="bg-white border-2 border-[#1A1A1A] overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 relative">
+        {/* Spotlight effect on hover */}
+        {isHovered && (
+          <div 
+            className="absolute inset-0 opacity-20 pointer-events-none z-10 transition-opacity duration-300"
+            style={{
+              background: `radial-gradient(circle 200px at ${mousePos.x}px ${mousePos.y}px, #9B8BC4, transparent)`
+            }}
+          />
+        )}
+        
         {/* Project Image */}
         <div className="relative h-64 overflow-hidden bg-[#1A1A1A]">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
           />
           <div className="absolute inset-0 bg-[#9B8BC4]/0 group-hover:bg-[#9B8BC4]/20 transition-all duration-500" />
         </div>
 
         {/* Project Content */}
-        <div className="p-6 md:p-8">
+        <div className="p-6 md:p-8 relative z-20">
           <div className="flex items-start justify-between mb-4">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2 font-mono">
+              <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2 font-mono group-hover:text-[#9B8BC4] transition-colors duration-300">
                 {project.title}
               </h3>
               <p className="text-[#9B8BC4] font-medium">{project.subtitle}</p>
             </div>
-            <Sparkles className="text-[#9B8BC4] flex-shrink-0 ml-4" size={24} />
+            <Sparkles className="text-[#9B8BC4] flex-shrink-0 ml-4 group-hover:rotate-180 transition-transform duration-500" size={24} />
           </div>
 
           <p className="text-[#1A1A1A]/70 mb-6 leading-relaxed">
@@ -81,7 +92,7 @@ const ProjectCard = ({ project, index }) => {
             {project.technologies.map((tech, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 bg-[#FAF7F0] border border-[#9B8BC4]/30 text-[#1A1A1A] text-sm font-mono hover:bg-[#9B8BC4]/10 transition-colors duration-300"
+                className="px-3 py-1 bg-[#FAF7F0] border border-[#9B8BC4]/30 text-[#1A1A1A] text-sm font-mono hover:bg-[#9B8BC4] hover:text-[#FAF7F0] transition-all duration-300 hover:scale-110 hover:-rotate-2 cursor-default"
               >
                 {tech}
               </span>
@@ -91,8 +102,8 @@ const ProjectCard = ({ project, index }) => {
           {/* Features */}
           <ul className="space-y-2 mb-6">
             {project.features.map((feature, idx) => (
-              <li key={idx} className="text-[#1A1A1A]/70 text-sm flex items-start">
-                <span className="text-[#9B8BC4] mr-2 flex-shrink-0">▹</span>
+              <li key={idx} className="text-[#1A1A1A]/70 text-sm flex items-start group/item hover:text-[#1A1A1A] transition-colors duration-300">
+                <span className="text-[#9B8BC4] mr-2 flex-shrink-0 group-hover/item:scale-125 transition-transform duration-300">▹</span>
                 {feature}
               </li>
             ))}
@@ -102,16 +113,16 @@ const ProjectCard = ({ project, index }) => {
           <div className="flex gap-4">
             <a
               href={project.githubLink}
-              className="flex items-center gap-2 px-4 py-2 border-2 border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#FAF7F0] transition-all duration-300 font-medium"
+              className="flex items-center gap-2 px-4 py-2 border-2 border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#FAF7F0] transition-all duration-300 font-medium hover:scale-105 hover:-translate-y-1"
             >
-              <Github size={18} />
+              <Github size={18} className="group-hover:rotate-12 transition-transform duration-300" />
               Code
             </a>
             <a
               href={project.demoLink}
-              className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] text-[#FAF7F0] hover:bg-[#9B8BC4] transition-all duration-300 font-medium"
+              className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] text-[#FAF7F0] hover:bg-[#9B8BC4] transition-all duration-300 font-medium hover:scale-105 hover:-translate-y-1"
             >
-              <ExternalLink size={18} />
+              <ExternalLink size={18} className="group-hover:rotate-12 transition-transform duration-300" />
               Demo
             </a>
           </div>
