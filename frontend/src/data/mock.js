@@ -20,8 +20,7 @@ export const skills = {
   languages: ["Java", "C++", "C", "Python", "JavaScript (ES6+)", "HTML5", "CSS3"],
   frameworks: ["React.js", "Node.js", "Express.js", "Bootstrap"],
   tools: ["Git/GitHub", "Linux (Bash)", "VS Code", "Postman"],
-  concepts: ["Data Structures & Algorithms", "RESTful APIs", "OOPs", "MERN Stack"],
-  learning: ["CI/CD Pipelines", "Cloud Infrastructure (AWS/Azure)"]
+  concepts: ["Data Structures & Algorithms", "RESTful APIs", "OOPs", "MERN Stack", "CI/CD Pipelines", "Cloud Infrastructure (AWS/Azure)"]
 };
 
 export const projects = [
