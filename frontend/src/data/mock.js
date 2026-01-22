@@ -38,7 +38,7 @@ export const projects = [
       "Responsive Bootstrap UI for cross-device compatibility"
     ],
     githubLink: "https://github.com/SAGAR172006/Focus-Flow_updated/tree/main",
-    status: "In Development"
+    status: "Mini Project"
   }
   // Add more projects here as you build them
 ];
