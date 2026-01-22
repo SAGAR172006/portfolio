@@ -8,14 +8,14 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ThemeToggle from './components/ThemeToggle';
 import FluidBackground from './components/FluidBackground';
-import CustomCursor from './components/CustomCursor';
+import ClickSpark from './components/ClickSpark';
 import './App.css';
 
 function App() {
   return (
     <ThemeProvider>
       <div className="App">
-        <CustomCursor />
+        <ClickSpark />
         <FluidBackground />
         <Header />
         <Hero />
