@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ExternalLink, Github, Sparkles } from 'lucide-react';
+import { Github, Sparkles } from 'lucide-react';
 import { projects } from '../data/mock';
 
 const ProjectCard = ({ project, index }) => {
