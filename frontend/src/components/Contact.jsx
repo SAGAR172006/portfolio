@@ -151,7 +151,7 @@ const Contact = () => {
             <div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-[#1A1A1A] font-medium mb-2 font-mono">
+                  <label htmlFor="name" className="block text-[#1A1A1A] dark:text-[#E4D4F6] font-medium mb-2 font-mono">
                     Name
                   </label>
                   <input
@@ -159,14 +159,14 @@ const Contact = () => {
                     id="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border-2 border-[#1A1A1A] text-[#1A1A1A] focus:outline-none focus:border-[#9B8BC4] transition-all duration-300 hover:border-[#9B8BC4]/50"
+                    className="w-full px-4 py-3 bg-white dark:bg-[#221d2e] border-2 border-[#1A1A1A] dark:border-[#9B8BC4] text-[#1A1A1A] dark:text-[#E4D4F6] focus:outline-none focus:border-[#9B8BC4] dark:focus:border-[#B4A4D6] transition-all duration-300 hover:border-[#9B8BC4]/50 dark:hover:border-[#B4A4D6]/50"
                     placeholder="Your name"
                     required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-[#1A1A1A] font-medium mb-2 font-mono">
+                  <label htmlFor="email" className="block text-[#1A1A1A] dark:text-[#E4D4F6] font-medium mb-2 font-mono">
                     Email
                   </label>
                   <input
@@ -174,14 +174,14 @@ const Contact = () => {
                     id="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border-2 border-[#1A1A1A] text-[#1A1A1A] focus:outline-none focus:border-[#9B8BC4] transition-all duration-300 hover:border-[#9B8BC4]/50"
+                    className="w-full px-4 py-3 bg-white dark:bg-[#221d2e] border-2 border-[#1A1A1A] dark:border-[#9B8BC4] text-[#1A1A1A] dark:text-[#E4D4F6] focus:outline-none focus:border-[#9B8BC4] dark:focus:border-[#B4A4D6] transition-all duration-300 hover:border-[#9B8BC4]/50 dark:hover:border-[#B4A4D6]/50"
                     placeholder="your.email@example.com"
                     required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-[#1A1A1A] font-medium mb-2 font-mono">
+                  <label htmlFor="message" className="block text-[#1A1A1A] dark:text-[#E4D4F6] font-medium mb-2 font-mono">
                     Message
                   </label>
                   <textarea
@@ -189,7 +189,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows="6"
-                    className="w-full px-4 py-3 bg-white border-2 border-[#1A1A1A] text-[#1A1A1A] focus:outline-none focus:border-[#9B8BC4] transition-all duration-300 resize-none hover:border-[#9B8BC4]/50"
+                    className="w-full px-4 py-3 bg-white dark:bg-[#221d2e] border-2 border-[#1A1A1A] dark:border-[#9B8BC4] text-[#1A1A1A] dark:text-[#E4D4F6] focus:outline-none focus:border-[#9B8BC4] dark:focus:border-[#B4A4D6] transition-all duration-300 resize-none hover:border-[#9B8BC4]/50 dark:hover:border-[#B4A4D6]/50"
                     placeholder="Tell me about your project or idea..."
                     required
                   />
