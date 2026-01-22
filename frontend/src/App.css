@@ -1,10 +1,5 @@
 .App {
   scroll-behavior: smooth;
-  cursor: none;
-}
-
-* {
-  cursor: none !important;
 }
 
 .App-logo {
