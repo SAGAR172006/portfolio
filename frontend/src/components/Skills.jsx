@@ -36,22 +36,22 @@ const SkillCategory = ({ title, items, icon: Icon, index }) => {
       }`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div className="bg-white border-2 border-[#1A1A1A] p-6 md:p-8 hover:shadow-2xl transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
+      <div className="bg-white dark:bg-[#221d2e] border-2 border-[#1A1A1A] dark:border-[#9B8BC4] p-6 md:p-8 hover:shadow-2xl dark:hover:shadow-[#9B8BC4]/20 transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
         {/* Animated background on hover */}
-        <div className="absolute inset-0 bg-[#9B8BC4]/0 group-hover:bg-[#9B8BC4]/5 transition-all duration-500"></div>
+        <div className="absolute inset-0 bg-[#9B8BC4]/0 group-hover:bg-[#9B8BC4]/5 dark:group-hover:bg-[#B4A4D6]/5 transition-all duration-500"></div>
         
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 bg-[#FAF7F0] border-2 border-[#9B8BC4] group-hover:bg-[#9B8BC4] transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
-              <Icon className="text-[#1A1A1A] group-hover:text-[#FAF7F0] transition-colors duration-300" size={24} />
+            <div className="p-3 bg-[#FAF7F0] dark:bg-[#1a1526] border-2 border-[#9B8BC4] dark:border-[#B4A4D6] group-hover:bg-[#9B8BC4] dark:group-hover:bg-[#B4A4D6] transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
+              <Icon className="text-[#1A1A1A] dark:text-[#B4A4D6] group-hover:text-[#FAF7F0] dark:group-hover:text-[#1a1526] transition-colors duration-300" size={24} />
             </div>
-            <h3 className="text-2xl font-bold text-[#1A1A1A] font-mono group-hover:text-[#9B8BC4] transition-colors duration-300">{title}</h3>
+            <h3 className="text-2xl font-bold text-[#1A1A1A] dark:text-[#E4D4F6] font-mono group-hover:text-[#9B8BC4] dark:group-hover:text-[#B4A4D6] transition-colors duration-300">{title}</h3>
           </div>
           <div className="flex flex-wrap gap-3">
             {items.map((skill, idx) => (
               <span
                 key={idx}
-                className="px-4 py-2 bg-[#FAF7F0] border border-[#9B8BC4]/30 text-[#1A1A1A] font-medium hover:bg-[#9B8BC4] hover:text-[#FAF7F0] hover:border-[#9B8BC4] transition-all duration-300 cursor-default hover:scale-110 hover:-rotate-2"
+                className="px-4 py-2 bg-[#FAF7F0] dark:bg-[#1a1526] border border-[#9B8BC4]/30 dark:border-[#B4A4D6]/30 text-[#1A1A1A] dark:text-[#B4A4D6] font-medium hover:bg-[#9B8BC4] dark:hover:bg-[#B4A4D6] hover:text-[#FAF7F0] dark:hover:text-[#1a1526] hover:border-[#9B8BC4] dark:hover:border-[#B4A4D6] transition-all duration-300 cursor-default hover:scale-110 hover:-rotate-2"
                 style={{
                   animation: isVisible ? `fadeIn 0.5s ease-out ${idx * 0.1}s both` : 'none'
                 }}
