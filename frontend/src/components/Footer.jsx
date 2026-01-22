@@ -10,36 +10,36 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#1A1A1A] text-[#FAF7F0] py-12">
+    <footer className="bg-[#1A1A1A] dark:bg-[#0f0c16] text-[#FAF7F0] dark:text-[#E4D4F6] transition-colors duration-500 py-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <button
               onClick={scrollToTop}
-              className="text-2xl font-bold font-mono mb-2 hover:text-[#9B8BC4] transition-colors duration-300"
+              className="text-2xl font-bold font-mono mb-2 hover:text-[#9B8BC4] dark:hover:text-[#B4A4D6] transition-colors duration-300"
             >
               {personalInfo.name}
             </button>
-            <p className="text-[#FAF7F0]/70 text-sm">
+            <p className="text-[#FAF7F0]/70 dark:text-[#B4A4D6]/70 text-sm">
               {personalInfo.title}
             </p>
           </div>
 
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-[#FAF7F0]/70">Made with</span>
-            <Heart className="text-[#9B8BC4] fill-[#9B8BC4]" size={16} />
-            <span className="text-[#FAF7F0]/70">by {personalInfo.name.split(' ')[0]}</span>
+            <span className="text-[#FAF7F0]/70 dark:text-[#B4A4D6]/70">Made with</span>
+            <Heart className="text-[#9B8BC4] dark:text-[#B4A4D6] fill-[#9B8BC4] dark:fill-[#B4A4D6]" size={16} />
+            <span className="text-[#FAF7F0]/70 dark:text-[#B4A4D6]/70">by {personalInfo.name.split(' ')[0]}</span>
           </div>
 
           <div className="text-center md:text-right">
-            <p className="text-[#FAF7F0]/70 text-sm">
+            <p className="text-[#FAF7F0]/70 dark:text-[#B4A4D6]/70 text-sm">
               © {currentYear} All rights reserved.
             </p>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-[#FAF7F0]/20 text-center">
-          <p className="text-[#FAF7F0]/50 text-xs font-mono">
+        <div className="mt-8 pt-8 border-t border-[#FAF7F0]/20 dark:border-[#B4A4D6]/20 text-center">
+          <p className="text-[#FAF7F0]/50 dark:text-[#B4A4D6]/50 text-xs font-mono">
             Designed & Built with React • Tailwind CSS • Love for Code
           </p>
         </div>
