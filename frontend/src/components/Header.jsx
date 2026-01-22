@@ -24,36 +24,28 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'bg-[#FAF7F0]/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-[#FAF7F0] dark:bg-[#1a1526]/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <button
-            onClick={() => scrollToSection('hero')}
-            className="text-sm md:text-base lg:text-lg text-[#1A1A1A] hover:text-[#9B8BC4] transition-all duration-300 hover:scale-105"
-            style={{ fontFamily: "'VT323', monospace" }}
-          >
-            Portfolio of Sagar Singh
-          </button>
-
+        <div className="flex items-center justify-end">
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {['projects', 'skills', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-[#1A1A1A] hover:text-[#9B8BC4] transition-all duration-300 capitalize font-medium relative group"
+                className="text-[#1A1A1A] dark:text-[#B4A4D6] hover:text-[#9B8BC4] dark:hover:text-[#D4C4E6] transition-all duration-300 capitalize font-medium relative group"
               >
                 {item}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#9B8BC4] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#9B8BC4] dark:bg-[#B4A4D6] transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-[#1A1A1A] hover:text-[#9B8BC4] transition-all duration-300 hover:rotate-90"
+            className="md:hidden text-[#1A1A1A] dark:text-[#B4A4D6] hover:text-[#9B8BC4] dark:hover:text-[#D4C4E6] transition-all duration-300 hover:rotate-90"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -67,7 +59,7 @@ const Header = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="block w-full text-left text-[#1A1A1A] hover:text-[#9B8BC4] transition-colors duration-300 capitalize font-medium"
+                className="block w-full text-left text-[#1A1A1A] dark:text-[#B4A4D6] hover:text-[#9B8BC4] dark:hover:text-[#D4C4E6] transition-colors duration-300 capitalize font-medium"
               >
                 {item}
               </button>
