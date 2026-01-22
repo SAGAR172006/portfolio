@@ -92,10 +92,10 @@ const Contact = () => {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-[#1A1A1A] mb-6 font-mono">
+                <h3 className="text-2xl font-bold text-[#1A1A1A] dark:text-[#E4D4F6] mb-6 font-mono">
                   Get In Touch
                 </h3>
-                <p className="text-[#1A1A1A]/70 leading-relaxed mb-8">
+                <p className="text-[#1A1A1A]/70 dark:text-[#B4A4D6]/70 leading-relaxed mb-8">
                   I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                 </p>
               </div>
@@ -104,14 +104,14 @@ const Contact = () => {
               <div className="space-y-4">
                 <a
                   href={`mailto:${contact.email}`}
-                  className="flex items-center gap-4 p-4 bg-white border-2 border-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#FAF7F0] transition-all duration-300 group hover:scale-105 hover:shadow-xl"
+                  className="flex items-center gap-4 p-4 bg-white dark:bg-[#221d2e] border-2 border-[#1A1A1A] dark:border-[#9B8BC4] hover:bg-[#1A1A1A] dark:hover:bg-[#9B8BC4] hover:text-[#FAF7F0] dark:hover:text-[#1a1526] transition-all duration-300 group hover:scale-105 hover:shadow-xl dark:hover:shadow-[#9B8BC4]/20"
                 >
-                  <div className="p-2 bg-[#FAF7F0] border border-[#9B8BC4] group-hover:bg-[#9B8BC4] transition-all duration-300 group-hover:rotate-12">
-                    <Mail className="text-[#1A1A1A] group-hover:text-[#FAF7F0] transition-colors duration-300" size={20} />
+                  <div className="p-2 bg-[#FAF7F0] dark:bg-[#1a1526] border border-[#9B8BC4] dark:border-[#B4A4D6] group-hover:bg-[#9B8BC4] dark:group-hover:bg-[#B4A4D6] transition-all duration-300 group-hover:rotate-12">
+                    <Mail className="text-[#1A1A1A] dark:text-[#B4A4D6] group-hover:text-[#FAF7F0] dark:group-hover:text-[#1a1526] transition-colors duration-300" size={20} />
                   </div>
                   <div>
-                    <p className="font-mono text-sm text-[#9B8BC4] group-hover:text-[#FAF7F0]/70">Email</p>
-                    <p className="font-medium">{contact.email}</p>
+                    <p className="font-mono text-sm text-[#9B8BC4] dark:text-[#B4A4D6] group-hover:text-[#FAF7F0]/70 dark:group-hover:text-[#1a1526]/70">Email</p>
+                    <p className="font-medium text-[#1A1A1A] dark:text-[#E4D4F6] group-hover:text-[#FAF7F0] dark:group-hover:text-[#1a1526]">{contact.email}</p>
                   </div>
                 </a>
 
@@ -119,14 +119,14 @@ const Contact = () => {
                   href={contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-white border-2 border-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#FAF7F0] transition-all duration-300 group hover:scale-105 hover:shadow-xl"
+                  className="flex items-center gap-4 p-4 bg-white dark:bg-[#221d2e] border-2 border-[#1A1A1A] dark:border-[#9B8BC4] hover:bg-[#1A1A1A] dark:hover:bg-[#9B8BC4] hover:text-[#FAF7F0] dark:hover:text-[#1a1526] transition-all duration-300 group hover:scale-105 hover:shadow-xl dark:hover:shadow-[#9B8BC4]/20"
                 >
-                  <div className="p-2 bg-[#FAF7F0] border border-[#9B8BC4] group-hover:bg-[#9B8BC4] transition-all duration-300 group-hover:rotate-12">
-                    <Linkedin className="text-[#1A1A1A] group-hover:text-[#FAF7F0] transition-colors duration-300" size={20} />
+                  <div className="p-2 bg-[#FAF7F0] dark:bg-[#1a1526] border border-[#9B8BC4] dark:border-[#B4A4D6] group-hover:bg-[#9B8BC4] dark:group-hover:bg-[#B4A4D6] transition-all duration-300 group-hover:rotate-12">
+                    <Linkedin className="text-[#1A1A1A] dark:text-[#B4A4D6] group-hover:text-[#FAF7F0] dark:group-hover:text-[#1a1526] transition-colors duration-300" size={20} />
                   </div>
                   <div>
-                    <p className="font-mono text-sm text-[#9B8BC4] group-hover:text-[#FAF7F0]/70">LinkedIn</p>
-                    <p className="font-medium">Connect on LinkedIn</p>
+                    <p className="font-mono text-sm text-[#9B8BC4] dark:text-[#B4A4D6] group-hover:text-[#FAF7F0]/70 dark:group-hover:text-[#1a1526]/70">LinkedIn</p>
+                    <p className="font-medium text-[#1A1A1A] dark:text-[#E4D4F6] group-hover:text-[#FAF7F0] dark:group-hover:text-[#1a1526]">Connect on LinkedIn</p>
                   </div>
                 </a>
 
@@ -134,14 +134,14 @@ const Contact = () => {
                   href={contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-white border-2 border-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#FAF7F0] transition-all duration-300 group hover:scale-105 hover:shadow-xl"
+                  className="flex items-center gap-4 p-4 bg-white dark:bg-[#221d2e] border-2 border-[#1A1A1A] dark:border-[#9B8BC4] hover:bg-[#1A1A1A] dark:hover:bg-[#9B8BC4] hover:text-[#FAF7F0] dark:hover:text-[#1a1526] transition-all duration-300 group hover:scale-105 hover:shadow-xl dark:hover:shadow-[#9B8BC4]/20"
                 >
-                  <div className="p-2 bg-[#FAF7F0] border border-[#9B8BC4] group-hover:bg-[#9B8BC4] transition-all duration-300 group-hover:rotate-12">
-                    <Github className="text-[#1A1A1A] group-hover:text-[#FAF7F0] transition-colors duration-300" size={20} />
+                  <div className="p-2 bg-[#FAF7F0] dark:bg-[#1a1526] border border-[#9B8BC4] dark:border-[#B4A4D6] group-hover:bg-[#9B8BC4] dark:group-hover:bg-[#B4A4D6] transition-all duration-300 group-hover:rotate-12">
+                    <Github className="text-[#1A1A1A] dark:text-[#B4A4D6] group-hover:text-[#FAF7F0] dark:group-hover:text-[#1a1526] transition-colors duration-300" size={20} />
                   </div>
                   <div>
-                    <p className="font-mono text-sm text-[#9B8BC4] group-hover:text-[#FAF7F0]/70">GitHub</p>
-                    <p className="font-medium">@{contact.github.split('/').pop()}</p>
+                    <p className="font-mono text-sm text-[#9B8BC4] dark:text-[#B4A4D6] group-hover:text-[#FAF7F0]/70 dark:group-hover:text-[#1a1526]/70">GitHub</p>
+                    <p className="font-medium text-[#1A1A1A] dark:text-[#E4D4F6] group-hover:text-[#FAF7F0] dark:group-hover:text-[#1a1526]">@{contact.github.split('/').pop()}</p>
                   </div>
                 </a>
               </div>
