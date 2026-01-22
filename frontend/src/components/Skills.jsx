@@ -100,7 +100,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="min-h-screen bg-[#1A1A1A] py-20 md:py-32 relative overflow-hidden">
+    <section id="skills" className="min-h-screen bg-[#1A1A1A] dark:bg-[#0f0c16] transition-colors duration-500 py-20 md:py-32 relative overflow-hidden">
       {/* Animated grid background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -116,10 +116,10 @@ const Skills = () => {
             titleVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-[#FAF7F0] mb-4 font-mono">
+          <h2 className="text-4xl md:text-6xl font-bold text-[#FAF7F0] dark:text-[#E4D4F6] mb-4 font-mono">
             Technical Skills
           </h2>
-          <p className="text-[#FAF7F0]/70 text-lg max-w-2xl mx-auto">
+          <p className="text-[#FAF7F0]/70 dark:text-[#B4A4D6]/70 text-lg max-w-2xl mx-auto">
             Constantly evolving and learning new technologies
           </p>
         </div>
