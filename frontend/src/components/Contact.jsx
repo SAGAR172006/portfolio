@@ -67,10 +67,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="min-h-screen bg-[#FAF7F0] py-20 md:py-32 relative overflow-hidden">
+    <section id="contact" className="min-h-screen bg-[#FAF7F0] dark:bg-[#1a1526] transition-colors duration-500 py-20 md:py-32 relative overflow-hidden">
       {/* Floating background elements */}
-      <div className="absolute top-10 right-10 w-72 h-72 bg-[#B4A4D6]/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#9B8BC4]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-10 right-10 w-72 h-72 bg-[#B4A4D6]/10 dark:bg-[#B4A4D6]/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#9B8BC4]/10 dark:bg-[#9B8BC4]/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div
@@ -80,10 +80,10 @@ const Contact = () => {
           }`}
         >
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-[#1A1A1A] mb-4 font-mono">
+            <h2 className="text-4xl md:text-6xl font-bold text-[#1A1A1A] dark:text-[#E4D4F6] mb-4 font-mono">
               Let's Connect
             </h2>
-            <p className="text-[#1A1A1A]/70 text-lg max-w-2xl mx-auto">
+            <p className="text-[#1A1A1A]/70 dark:text-[#B4A4D6]/70 text-lg max-w-2xl mx-auto">
               Have a project in mind or want to collaborate? Feel free to reach out!
             </p>
           </div>
