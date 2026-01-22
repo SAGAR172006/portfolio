@@ -30,7 +30,7 @@ export const projects = [
     subtitle: "Productivity Booster Application",
     description: "A comprehensive productivity application designed to enhance focus and time management. Features include task tracking, pomodoro timer, and AI-powered insights to optimize workflow.",
     technologies: ["JavaScript", "Bootstrap", "MongoDB", "Gemini API", "Google OAuth"],
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+    image: "https://customer-assets.emergentagent.com/job_b45e0e6a-7999-45ef-9bb6-53ac47e84b95/artifacts/4otvasf7_Screen%20Recording%202026-01-22%20163655.mp4",
     features: [
       "Google OAuth integration for secure authentication",
       "AI-powered productivity insights using Gemini API",
