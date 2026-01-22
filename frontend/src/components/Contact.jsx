@@ -212,7 +212,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-[#1A1A1A] text-[#FAF7F0] font-medium hover:bg-[#9B8BC4] transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-[#1A1A1A] dark:bg-[#9B8BC4] text-[#FAF7F0] dark:text-[#1a1526] font-medium hover:bg-[#9B8BC4] dark:hover:bg-[#B4A4D6] transition-all duration-300 hover:scale-105 hover:shadow-xl dark:hover:shadow-[#9B8BC4]/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   <Send size={20} className={isSubmitting ? 'animate-bounce' : ''} />
                   {isSubmitting ? 'Sending...' : 'Send Message'}
