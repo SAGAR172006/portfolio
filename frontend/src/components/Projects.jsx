@@ -78,9 +78,16 @@ const ProjectCard = ({ project, index }) => {
         <div className="p-6 md:p-8 relative z-20">
           <div className="flex items-start justify-between mb-4">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] dark:text-[#E4D4F6] mb-2 font-mono group-hover:text-[#9B8BC4] dark:group-hover:text-[#B4A4D6] transition-colors duration-300">
-                {project.title}
-              </h3>
+              <div className="flex items-center gap-3 mb-2">
+                <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] dark:text-[#E4D4F6] font-mono group-hover:text-[#9B8BC4] dark:group-hover:text-[#B4A4D6] transition-colors duration-300">
+                  {project.title}
+                </h3>
+                {project.status && (
+                  <span className="px-3 py-1 text-xs font-mono bg-[#9B8BC4]/20 dark:bg-[#B4A4D6]/20 text-[#9B8BC4] dark:text-[#B4A4D6] border border-[#9B8BC4]/30 dark:border-[#B4A4D6]/30 rounded-full">
+                    {project.status}
+                  </span>
+                )}
+              </div>
               <p className="text-[#9B8BC4] dark:text-[#B4A4D6] font-medium">{project.subtitle}</p>
             </div>
             <Sparkles className="text-[#9B8BC4] dark:text-[#B4A4D6] flex-shrink-0 ml-4 group-hover:rotate-180 transition-transform duration-500" size={24} />
