@@ -162,10 +162,10 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="min-h-screen bg-[#FAF7F0] py-20 md:py-32 relative overflow-hidden">
+    <section id="projects" className="min-h-screen bg-[#FAF7F0] dark:bg-[#1a1526] transition-colors duration-500 py-20 md:py-32 relative overflow-hidden">
       {/* Animated background shapes */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-[#B4A4D6]/5 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#9B8BC4]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-20 right-20 w-64 h-64 bg-[#B4A4D6]/5 dark:bg-[#B4A4D6]/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#9B8BC4]/5 dark:bg-[#9B8BC4]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div
@@ -174,10 +174,10 @@ const Projects = () => {
             titleVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-[#1A1A1A] mb-4 font-mono">
+          <h2 className="text-4xl md:text-6xl font-bold text-[#1A1A1A] dark:text-[#E4D4F6] mb-4 font-mono">
             Featured Projects
           </h2>
-          <p className="text-[#1A1A1A]/70 text-lg max-w-2xl mx-auto">
+          <p className="text-[#1A1A1A]/70 dark:text-[#B4A4D6]/70 text-lg max-w-2xl mx-auto">
             Building innovative solutions with modern technologies
           </p>
         </div>
@@ -190,7 +190,7 @@ const Projects = () => {
 
         {/* Future Projects Placeholder */}
         <div className="mt-12 text-center">
-          <p className="text-[#9B8BC4] font-mono italic animate-pulse">
+          <p className="text-[#9B8BC4] dark:text-[#B4A4D6] font-mono italic animate-pulse">
             More exciting projects coming soon...
           </p>
         </div>
