@@ -123,17 +123,12 @@ const ProjectCard = ({ project, index }) => {
           <div className="flex gap-4">
             <a
               href={project.githubLink}
-              className="flex items-center gap-2 px-4 py-2 border-2 border-[#1A1A1A] dark:border-[#9B8BC4] text-[#1A1A1A] dark:text-[#B4A4D6] hover:bg-[#1A1A1A] dark:hover:bg-[#9B8BC4] hover:text-[#FAF7F0] dark:hover:text-[#1a1526] transition-all duration-300 font-medium hover:scale-105 hover:-translate-y-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-[#1A1A1A] dark:bg-[#9B8BC4] text-[#FAF7F0] dark:text-[#1a1526] hover:bg-[#9B8BC4] dark:hover:bg-[#B4A4D6] transition-all duration-300 font-medium hover:scale-105 hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-[#9B8BC4]/30"
             >
-              <Github size={18} className="group-hover:rotate-12 transition-transform duration-300" />
-              Code
-            </a>
-            <a
-              href={project.demoLink}
-              className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] dark:bg-[#9B8BC4] text-[#FAF7F0] dark:text-[#1a1526] hover:bg-[#9B8BC4] dark:hover:bg-[#B4A4D6] transition-all duration-300 font-medium hover:scale-105 hover:-translate-y-1"
-            >
-              <ExternalLink size={18} className="group-hover:rotate-12 transition-transform duration-300" />
-              Demo
+              <Github size={20} />
+              View Source Code
             </a>
           </div>
         </div>
