@@ -37,8 +37,8 @@ export const projects = [
       "Real-time task management with MongoDB",
       "Responsive Bootstrap UI for cross-device compatibility"
     ],
-    demoLink: "#",
-    githubLink: "#"
+    githubLink: "https://github.com/SAGAR172006/Focus-Flow_updated/tree/main",
+    status: "In Development"
   }
   // Add more projects here as you build them
 ];
