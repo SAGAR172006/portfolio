@@ -62,13 +62,16 @@ const ProjectCard = ({ project, index }) => {
         )}
         
         {/* Project Image */}
-        <div className="relative h-64 overflow-hidden bg-[#1A1A1A]">
-          <img
+        <div className="relative h-64 overflow-hidden bg-[#1A1A1A] dark:bg-[#0a0810]">
+          <video
             src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
-          <div className="absolute inset-0 bg-[#9B8BC4]/0 group-hover:bg-[#9B8BC4]/20 transition-all duration-500" />
+          <div className="absolute inset-0 bg-[#9B8BC4]/0 group-hover:bg-[#9B8BC4]/20 dark:group-hover:bg-[#B4A4D6]/20 transition-all duration-500" />
         </div>
 
         {/* Project Content */}
