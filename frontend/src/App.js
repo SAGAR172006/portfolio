@@ -10,6 +10,7 @@ import ThemeToggle from './components/ThemeToggle';
 import FluidBackground from './components/FluidBackground';
 import ClickSpark from './components/ClickSpark';
 import './App.css';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   return (
