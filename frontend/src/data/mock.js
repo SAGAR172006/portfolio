@@ -46,7 +46,7 @@ export const projects = [
     subtitle: "Modular Fleet & Logistics Management System",
     description: "A full-stack fleet and logistics management web app built with React, Node.js/Express, and Firebase. Features role-based dashboards for fleet managers, dispatchers, safety officers, and finance analysts — managing vehicles, trips, maintenance, expenses, and analytics in real-time.",
     technologies: ["React 18", "Vite 5", "Tailwind CSS", "Node.js", "Express", "Firebase Firestore", "Firebase Admin SDK", "bcrypt", "Axios"],
-    image: "/images/09-analytics.png",
+    image: "/images/01-login.png",
 
     features: [
       "Role-based dashboards: Fleet Manager, Dispatcher, Safety Officer, Finance Analyst",
