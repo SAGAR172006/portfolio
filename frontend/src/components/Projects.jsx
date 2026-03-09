@@ -23,7 +23,7 @@ const ProjectCard = ({ project }) => {
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
     >
-      <div className="bg-white dark:bg-[#221d2e] border-2 border-[#1A1A1A] dark:border-[#9B8BC4] overflow-hidden group hover:shadow-2xl dark:hover:shadow-[#9B8BC4]/20 transition-all duration-500 hover:-translate-y-3 relative h-full">
+      <div className="bg-white dark:bg-[#221d2e] border-2 border-[#1A1A1A] dark:border-[#9B8BC4] overflow-hidden group hover:shadow-2xl dark:hover:shadow-[#9B8BC4]/20 transition-all duration-500 hover:-translate-y-3 relative h-full flex flex-col">
         {/* Spotlight effect on hover */}
         {isHovered && (
           <div
@@ -56,7 +56,7 @@ const ProjectCard = ({ project }) => {
         </div>
 
         {/* Project Content */}
-        <div className="p-6 md:p-8 relative z-20">
+        <div className="p-6 md:p-8 relative z-20 flex flex-col flex-grow">
           <div className="flex items-start justify-between mb-4">
             <div>
               <div className="flex items-center gap-3 mb-2">
@@ -99,7 +99,7 @@ const ProjectCard = ({ project }) => {
           </ul>
 
           {/* GitHub Button */}
-          <div className="flex gap-4">
+          <div className="flex gap-4 mt-auto">
             <a
               href={project.githubLink}
               target="_blank"
