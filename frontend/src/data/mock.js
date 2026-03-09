@@ -39,8 +39,47 @@ export const projects = [
     ],
     githubLink: "https://github.com/SAGAR172006/Focus-Flow_updated/tree/main",
     status: "Mini Project"
+  },
+  {
+    id: 2,
+    title: "FleetFlow",
+    subtitle: "Modular Fleet & Logistics Management System",
+    description: "A full-stack, modular fleet and logistics management web application built with React, Node.js/Express, and Firebase (Firestore). FleetFlow provides role-based dashboards for fleet managers, dispatchers, safety officers, and finance analysts to manage vehicles, trips, maintenance, expenses, driver performance, and analytics — all in real-time.",
+    technologies: ["React 18", "Vite 5", "Tailwind CSS", "Node.js", "Express", "Firebase Firestore", "Firebase Admin SDK", "bcrypt", "Axios"],
+    image: "https://raw.githubusercontent.com/SAGAR172006/media/main/09-analytics.png",
+    features: [
+      "Role-based dashboards: Fleet Manager, Dispatcher, Safety Officer, Finance Analyst",
+      "Real-time vehicle registry with CRUD operations and status tracking",
+      "Trip dispatcher with full lifecycle management (on trip → completed/aborted)",
+      "Maintenance scheduling with Scheduled, Emergency, and Routine record types",
+      "Expense logging per trip with categories: Fuel, Toll, Driver Pay, and more",
+      "Driver performance tracking with safety scores and license compliance",
+      "Fleet-wide analytics KPIs, trip status breakdowns, and monthly expense charts",
+      "bcrypt-secured role-based auth with business key validation"
+    ],
+    githubLink: "https://github.com/SAGAR172006/fleet-oodo",
+    status: "Hackathon"
+  },
+  {
+    id: 3,
+    title: "Weirdos",
+    subtitle: "Real-Time Social Deduction Party Game",
+    description: "A high-energy real-time multiplayer social deduction game — think Among Us meets Spyfall. Players join rooms, get secret roles (Normie or Weirdo), give one-word hints, vote, and try to expose (or hide) who the Weirdo is. No database. No login. Just pick a name, share a room code, and play.",
+    technologies: ["React 19", "Socket.IO", "FastAPI", "Python", "Tailwind CSS", "Framer Motion", "Radix UI", "CRACO", "Uvicorn"],
+    image: "https://raw.githubusercontent.com/SAGAR172006/media/main/Recording%202026-03-09%20155509.mp4",
+    features: [
+      "Real-time multiplayer via Socket.IO — zero latency room sync across all players",
+      "Secret role assignment each round: Normies know the word, Weirdos must bluff",
+      "One-word hint rounds with turn-based timers and in-game chat during voting",
+      "Voting system with optional anonymous voting to eliminate suspected Weirdos",
+      "Weirdo guess mechanic — correctly guess the secret word to win instantly",
+      "Neon dark UI with Framer Motion animations and glassmorphism cards",
+      "DiceBear Fun Emoji avatars unique per player seed",
+      "Massive word bank with difficulty levels and explicit content filter"
+    ],
+    githubLink: "https://github.com/SAGAR172006/weirdos_sdw_game",
+    status: "Hobby"
   }
-  // Add more projects here as you build them
 ];
 
 export const achievements = [
