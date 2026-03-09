@@ -46,7 +46,7 @@ export const projects = [
     subtitle: "Modular Fleet & Logistics Management System",
     description: "A full-stack, modular fleet and logistics management web application built with React, Node.js/Express, and Firebase (Firestore). FleetFlow provides role-based dashboards for fleet managers, dispatchers, safety officers, and finance analysts to manage vehicles, trips, maintenance, expenses, driver performance, and analytics — all in real-time.",
     technologies: ["React 18", "Vite 5", "Tailwind CSS", "Node.js", "Express", "Firebase Firestore", "Firebase Admin SDK", "bcrypt", "Axios"],
-    image: "https://raw.githubusercontent.com/SAGAR172006/media/main/09-analytics.png",
+    image: "https://raw.githubusercontent.com/SAGAR172006/media/refs/heads/main/09-analytics.png",
     features: [
       "Role-based dashboards: Fleet Manager, Dispatcher, Safety Officer, Finance Analyst",
       "Real-time vehicle registry with CRUD operations and status tracking",
@@ -66,7 +66,7 @@ export const projects = [
     subtitle: "Real-Time Social Deduction Party Game",
     description: "A high-energy real-time multiplayer social deduction game — think Among Us meets Spyfall. Players join rooms, get secret roles (Normie or Weirdo), give one-word hints, vote, and try to expose (or hide) who the Weirdo is. No database. No login. Just pick a name, share a room code, and play.",
     technologies: ["React 19", "Socket.IO", "FastAPI", "Python", "Tailwind CSS", "Framer Motion", "Radix UI", "CRACO", "Uvicorn"],
-    image: "https://raw.githubusercontent.com/SAGAR172006/media/main/Recording%202026-03-09%20155509.mp4",
+    image: "https://raw.githubusercontent.com/SAGAR172006/media/refs/heads/main/Recording%202026-03-09%20155509.mp4",
     features: [
       "Real-time multiplayer via Socket.IO — zero latency room sync across all players",
       "Secret role assignment each round: Normies know the word, Weirdos must bluff",
