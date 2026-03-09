@@ -30,7 +30,7 @@ export const projects = [
     subtitle: "Productivity Booster Application",
     description: "A comprehensive full-stack productivity application designed to enhance focus and time management through intelligent workflow optimization. Features include real-time task tracking with drag-and-drop prioritization, a customizable Pomodoro timer with session analytics, and AI-powered productivity insights via Gemini API to help users identify their peak performance patterns and optimize daily routines.",
     technologies: ["JavaScript", "Bootstrap", "MongoDB", "Gemini API", "Google OAuth"],
-    image: "https://raw.githubusercontent.com/SAGAR172006/media/main/Recording%202026-03-09%20164556.mp4",
+    image: "/images/Recording 2026-03-09 164556.mp4",
     features: [
       "Google OAuth integration for secure authentication",
       "AI-powered productivity insights using Gemini API",
@@ -46,7 +46,8 @@ export const projects = [
     subtitle: "Modular Fleet & Logistics Management System",
     description: "A full-stack fleet and logistics management web app built with React, Node.js/Express, and Firebase. Features role-based dashboards for fleet managers, dispatchers, safety officers, and finance analysts — managing vehicles, trips, maintenance, expenses, and analytics in real-time.",
     technologies: ["React 18", "Vite 5", "Tailwind CSS", "Node.js", "Express", "Firebase Firestore", "Firebase Admin SDK", "bcrypt", "Axios"],
-    image: "https://raw.githubusercontent.com/SAGAR172006/media/main/09-analytics.png",
+    image: "/images/09-analytics.png",
+
     features: [
       "Role-based dashboards: Fleet Manager, Dispatcher, Safety Officer, Finance Analyst",
       "Real-time vehicle registry with CRUD operations and status tracking",
@@ -66,7 +67,7 @@ export const projects = [
     subtitle: "Real-Time Social Deduction Party Game",
     description: "A real-time multiplayer social deduction party game — Among Us meets Spyfall. Players join rooms, get secret roles (Normie or Weirdo), give one-word hints, vote, and try to expose the Weirdo. No database, no login — just pick a name, share a code, and play.",
     technologies: ["React 19", "Socket.IO", "FastAPI", "Python", "Tailwind CSS", "Framer Motion", "Radix UI", "CRACO", "Uvicorn"],
-    image: "https://raw.githubusercontent.com/SAGAR172006/media/main/Recording%202026-03-09%20155509.mp4",
+    image: "/images/Recording 2026-03-09 155509.mp4",
     features: [
       "Real-time multiplayer via Socket.IO — zero latency room sync across all players",
       "Secret role assignment each round: Normies know the word, Weirdos must bluff",
