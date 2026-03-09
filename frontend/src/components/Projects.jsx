@@ -18,7 +18,7 @@ const ProjectCard = ({ project }) => {
   return (
     <div
       ref={cardRef}
-      style={{ minWidth: 'min(85vw, 680px)', flexShrink: 0 }}
+      style={{ width: 'clamp(320px, calc(50% - 1rem), 560px)', flexShrink: 0 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
@@ -41,12 +41,14 @@ const ProjectCard = ({ project }) => {
               loop
               muted
               playsInline
+              crossOrigin="anonymous"
               className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
             />
           ) : (
             <img
               src={project.image}
               alt={project.title}
+              crossOrigin="anonymous"
               className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
             />
           )}
@@ -197,7 +199,7 @@ const Projects = () => {
             scrollbarWidth: 'none',
             cursor: 'grab',
             gap: '2rem',
-            padding: '1rem 2rem 2rem 2rem',
+            padding: '1.5rem 2rem 2.5rem 2rem',
             userSelect: 'none',
             alignItems: 'stretch',
           }}
