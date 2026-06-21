@@ -1,214 +1,248 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Github, Sparkles } from 'lucide-react';
+import React, { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { projects } from '../data/mock';
 
 const isVideo = (src) => src && src.toLowerCase().endsWith('.mp4');
 
-const ProjectCard = ({ project }) => {
+// ─────────────────────────────────────────
+// Individual Project Tile — visual only, name on hover
+// ─────────────────────────────────────────
+const ProjectTile = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const cardRef = useRef(null);
-
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
+  const navigate = useNavigate();
 
   return (
     <div
-      ref={cardRef}
-      style={{ width: 'clamp(320px, calc(50% - 1rem), 560px)', flexShrink: 0 }}
+      onClick={() => navigate(`/project/${project.slug}`)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
+      className="relative overflow-hidden cursor-pointer group rounded-sm flex-shrink-0"
+      style={{
+        width: 'clamp(320px, 42vw, 640px)',
+        height: 'clamp(220px, 30vw, 420px)',
+      }}
     >
-      <div className="bg-white dark:bg-[#221d2e] border-2 border-[#1A1A1A] dark:border-[#9B8BC4] overflow-hidden group hover:shadow-2xl dark:hover:shadow-[#9B8BC4]/20 transition-all duration-500 hover:-translate-y-3 relative h-full flex flex-col">
-        {/* Spotlight effect on hover */}
-        {isHovered && (
-          <div
-            className="absolute inset-0 opacity-20 pointer-events-none z-10 transition-opacity duration-300"
-            style={{ background: `radial-gradient(circle 200px at ${mousePos.x}px ${mousePos.y}px, #9B8BC4, transparent)` }}
-          />
-        )}
+      {/* Light mode translucent background */}
+      <div className="absolute inset-0 bg-white/60 dark:bg-transparent backdrop-blur-sm dark:backdrop-blur-0 z-0" />
 
-        {/* Media */}
-        <div className="relative h-64 overflow-hidden bg-[#1A1A1A] dark:bg-[#0a0810]">
-          {isVideo(project.image) ? (
-            <video
-              src={project.image}
-              autoPlay
-              loop
-              muted
-              playsInline
-              crossOrigin="anonymous"
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
-            />
-          ) : (
-            <img
-              src={project.image}
-              alt={project.title}
-              crossOrigin="anonymous"
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
-            />
-          )}
-          <div className="absolute inset-0 bg-[#9B8BC4]/0 group-hover:bg-[#9B8BC4]/20 dark:group-hover:bg-[#B4A4D6]/20 transition-all duration-500" />
+      {/* Media */}
+      {isVideo(project.image) ? (
+        <video
+          src={project.image}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="relative w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+      ) : (
+        <img
+          src={project.image}
+          alt={project.title}
+          className="relative w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          loading="lazy"
+        />
+      )}
+
+      {/* Status badge */}
+      {project.status && (
+        <div
+          className="absolute top-4 right-4 z-20 transition-all duration-300"
+          style={{ opacity: isHovered ? 1 : 0, transform: isHovered ? 'translateY(0)' : 'translateY(-8px)' }}
+        >
+          <span className="px-3 py-1 text-[10px] font-mono uppercase tracking-widest bg-black/50 text-white/90 backdrop-blur-md border border-white/10 rounded-full">
+            {project.status}
+          </span>
         </div>
+      )}
 
-        {/* Project Content */}
-        <div className="p-6 md:p-8 relative z-20 flex flex-col flex-grow">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <div className="flex items-center gap-3 mb-2">
-                <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] dark:text-[#E4D4F6] font-mono group-hover:text-[#9B8BC4] dark:group-hover:text-[#B4A4D6] transition-colors duration-300">
-                  {project.title}
-                </h3>
-                {project.status && (
-                  <span className="px-3 py-1 text-xs font-mono bg-[#9B8BC4]/20 dark:bg-[#B4A4D6]/20 text-[#9B8BC4] dark:text-[#B4A4D6] border border-[#9B8BC4]/30 dark:border-[#B4A4D6]/30 rounded-full">
-                    {project.status}
-                  </span>
-                )}
-              </div>
-              <p className="text-[#9B8BC4] dark:text-[#B4A4D6] font-medium">{project.subtitle}</p>
-            </div>
-            <Sparkles className="text-[#9B8BC4] dark:text-[#B4A4D6] flex-shrink-0 ml-4 group-hover:rotate-180 transition-transform duration-500" size={24} />
-          </div>
-
-          <p className="text-[#1A1A1A]/70 dark:text-[#B4A4D6]/70 mb-6 leading-relaxed">{project.description}</p>
-
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.technologies.map((tech, idx) => (
+      {/* Hover overlay — project name + subtitle */}
+      <div
+        className="absolute inset-0 z-10 flex flex-col justify-end p-6 md:p-8 transition-all duration-500 ease-out"
+        style={{
+          background: isHovered
+            ? 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)'
+            : 'linear-gradient(to top, rgba(0,0,0,0.15) 0%, transparent 40%)',
+        }}
+      >
+        <div
+          className="transition-all duration-500 ease-out"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            transform: isHovered ? 'translateY(0)' : 'translateY(24px)',
+          }}
+        >
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-white font-mono leading-tight mb-1">
+            {project.title}
+          </h3>
+          <p className="text-white/60 text-sm font-medium">
+            {project.subtitle}
+          </p>
+          {/* Tech preview — first 3 tags */}
+          <div className="flex gap-2 mt-3">
+            {project.technologies.slice(0, 3).map((tech, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 bg-[#FAF7F0] dark:bg-[#1a1526] border border-[#9B8BC4]/30 dark:border-[#B4A4D6]/30 text-[#1A1A1A] dark:text-[#B4A4D6] text-sm font-mono hover:bg-[#9B8BC4] dark:hover:bg-[#B4A4D6] hover:text-[#FAF7F0] dark:hover:text-[#1a1526] transition-all duration-300 hover:scale-110 hover:-rotate-2 cursor-default"
+                className="px-2 py-0.5 text-[10px] font-mono text-white/50 border border-white/15 rounded-full"
               >
                 {tech}
               </span>
             ))}
-          </div>
-
-          {/* Features */}
-          <ul className="space-y-2 mb-6">
-            {project.features.map((feature, idx) => (
-              <li key={idx} className="text-[#1A1A1A]/70 dark:text-[#B4A4D6]/70 text-sm flex items-start group/item hover:text-[#1A1A1A] dark:hover:text-[#B4A4D6] transition-colors duration-300">
-                <span className="text-[#9B8BC4] dark:text-[#B4A4D6] mr-2 flex-shrink-0 group-hover/item:scale-125 transition-transform duration-300">▹</span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-
-          {/* GitHub Button */}
-          <div className="flex gap-4 mt-auto">
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-[#1A1A1A] dark:bg-[#9B8BC4] text-[#FAF7F0] dark:text-[#1a1526] hover:bg-[#9B8BC4] dark:hover:bg-[#B4A4D6] transition-all duration-300 font-medium hover:scale-105 hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-[#9B8BC4]/30"
-            >
-              <Github size={20} />
-              View Source Code
-            </a>
+            {project.technologies.length > 3 && (
+              <span className="text-[10px] font-mono text-white/30 self-center">
+                +{project.technologies.length - 3}
+              </span>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Subtle border */}
+      <div className="absolute inset-0 border border-[#1A1A1A]/10 dark:border-white/[0.06] pointer-events-none z-20 transition-colors duration-300 group-hover:border-[#9B8BC4]/30 dark:group-hover:border-white/[0.12] rounded-sm" />
     </div>
   );
 };
 
-const DRAG_SENSITIVITY = 1.5;
 
+// ─────────────────────────────────────────
+// Projects Section — Horizontal Scroller
+// ─────────────────────────────────────────
 const Projects = () => {
+  const scrollContainerRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   const [titleVisible, setTitleVisible] = useState(false);
-  const titleRef = useRef(null);
-  const scrollRef = useRef(null);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
+  const sectionRef = useRef(null);
 
+  // Intersection observer for title animation
   useEffect(() => {
+    const el = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setTitleVisible(true); },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
-    const currentRef = titleRef.current;
-    if (currentRef) observer.observe(currentRef);
-    return () => { if (currentRef) observer.unobserve(currentRef); };
+    if (el) observer.observe(el);
+    return () => { if (el) observer.unobserve(el); };
   }, []);
 
-  const onMouseDown = (e) => {
-    if (!scrollRef.current) return;
-    isDragging.current = true;
-    startX.current = e.pageX - scrollRef.current.offsetLeft;
-    scrollLeft.current = scrollRef.current.scrollLeft;
-    scrollRef.current.style.cursor = 'grabbing';
+  // Track scroll position for button states
+  const updateScrollState = () => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
   };
 
-  const onMouseLeave = () => {
-    isDragging.current = false;
-    if (scrollRef.current) scrollRef.current.style.cursor = 'grab';
-  };
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    updateScrollState();
+    el.addEventListener('scroll', updateScrollState, { passive: true });
+    window.addEventListener('resize', updateScrollState);
+    return () => {
+      el.removeEventListener('scroll', updateScrollState);
+      window.removeEventListener('resize', updateScrollState);
+    };
+  }, []);
 
-  const onMouseUp = () => {
-    isDragging.current = false;
-    if (scrollRef.current) scrollRef.current.style.cursor = 'grab';
-  };
-
-  const onMouseMove = (e) => {
-    if (!isDragging.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX.current) * DRAG_SENSITIVITY;
-    scrollRef.current.scrollLeft = scrollLeft.current - walk;
+  const scroll = (direction) => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const cardWidth = el.querySelector(':first-child')?.offsetWidth || 500;
+    const gap = 32; // gap-8 = 2rem = 32px
+    el.scrollBy({
+      left: direction === 'next' ? cardWidth + gap : -(cardWidth + gap),
+      behavior: 'smooth',
+    });
   };
 
   return (
-    <section id="projects" className="min-h-screen bg-[#FAF7F0] dark:bg-[#1a1526] transition-colors duration-500 py-20 md:py-32 relative overflow-hidden">
-      <style>{`.projects-scroll::-webkit-scrollbar { display: none; }`}</style>
+    <section
+      ref={sectionRef}
+      id="projects"
+      className="relative bg-[#FAF7F0] dark:bg-[#0a0a0a] py-16 md:py-24 overflow-hidden transition-colors duration-500"
+    >
+      {/* ── Header ── */}
+      <div
+        className={`relative z-10 px-6 md:px-12 mb-10 transition-all duration-700 ${
+          titleVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}
+      >
+        <p className="text-[#9B8BC4] dark:text-[#9B8BC4] font-mono text-[11px] tracking-[0.35em] uppercase mb-2">
+          scroll → to explore
+        </p>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] dark:text-white font-mono">
+          Featured Projects
+        </h2>
+        <p className="text-[#1A1A1A]/45 dark:text-white/40 text-sm mt-2 max-w-md">
+          Building innovative solutions with modern technologies
+        </p>
+      </div>
 
-      {/* Animated background shapes */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-[#B4A4D6]/5 dark:bg-[#B4A4D6]/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#9B8BC4]/5 dark:bg-[#9B8BC4]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-
-      <div className="relative z-10">
+      {/* ── Horizontal Scroll Container ── */}
+      <div className="relative">
+        {/* Gradient overlays */}
         <div
-          ref={titleRef}
-          className={`text-center mb-4 px-6 transform transition-all duration-1000 ${titleVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-        >
-          <h2 className="text-4xl md:text-6xl font-bold text-[#1A1A1A] dark:text-[#E4D4F6] mb-4 font-mono">
-            Featured Projects
-          </h2>
-          <p className="text-[#1A1A1A]/70 dark:text-[#B4A4D6]/70 text-lg max-w-2xl mx-auto mb-2">
-            Building innovative solutions with modern technologies
-          </p>
-          <p className="text-[#9B8BC4] dark:text-[#B4A4D6] font-mono text-sm italic animate-pulse">
-            ← drag to explore →
-          </p>
-        </div>
-
+          className={`absolute top-0 bottom-0 left-0 w-16 md:w-24 bg-gradient-to-r from-[#FAF7F0] dark:from-[#0a0a0a] to-transparent pointer-events-none z-10 transition-opacity duration-300 ${
+            canScrollLeft ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
         <div
-          ref={scrollRef}
-          className="projects-scroll"
-          onMouseDown={onMouseDown}
-          onMouseLeave={onMouseLeave}
-          onMouseUp={onMouseUp}
-          onMouseMove={onMouseMove}
-          style={{
-            display: 'flex',
-            overflowX: 'scroll',
-            scrollbarWidth: 'none',
-            cursor: 'grab',
-            gap: '2rem',
-            padding: '1.5rem 2rem 2.5rem 2rem',
-            userSelect: 'none',
-            alignItems: 'stretch',
-          }}
+          className={`absolute top-0 bottom-0 right-0 w-16 md:w-24 bg-gradient-to-l from-[#FAF7F0] dark:from-[#0a0a0a] to-transparent pointer-events-none z-10 transition-opacity duration-300 ${
+            canScrollRight ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+
+        {/* Scrollable strip */}
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-8 px-6 md:px-12 overflow-x-auto hide-scrollbar scroll-smooth"
         >
           {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectTile key={project.id} project={project} />
           ))}
         </div>
       </div>
+
+      {/* ── Nav Buttons ── */}
+      <div className="flex gap-3 px-6 md:px-12 mt-6 z-10 relative">
+        <button
+          aria-label="Scroll left"
+          onClick={() => scroll('prev')}
+          disabled={!canScrollLeft}
+          className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 select-none ${
+            canScrollLeft
+              ? 'border-[#1A1A1A]/20 dark:border-white/25 text-[#1A1A1A]/60 dark:text-white/70 hover:bg-[#1A1A1A]/10 dark:hover:bg-white/10 hover:border-[#1A1A1A]/40 dark:hover:border-white/40 cursor-pointer'
+              : 'border-[#1A1A1A]/10 dark:border-white/10 text-[#1A1A1A]/15 dark:text-white/15 cursor-not-allowed'
+          }`}
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path fillRule="evenodd" clipRule="evenodd" d="M10.5 14.0607L9.96966 13.5303L5.14644 8.7071C4.75592 8.31658 4.75592 7.68341 5.14644 7.29289L9.96966 2.46966L10.5 1.93933L11.5607 2.99999L11.0303 3.53032L6.56065 7.99999L11.0303 12.4697L11.5607 13L10.5 14.0607Z" />
+          </svg>
+        </button>
+        <button
+          aria-label="Scroll right"
+          onClick={() => scroll('next')}
+          disabled={!canScrollRight}
+          className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 select-none ${
+            canScrollRight
+              ? 'border-[#1A1A1A]/20 dark:border-white/25 text-[#1A1A1A]/60 dark:text-white/70 hover:bg-[#1A1A1A]/10 dark:hover:bg-white/10 hover:border-[#1A1A1A]/40 dark:hover:border-white/40 cursor-pointer'
+              : 'border-[#1A1A1A]/10 dark:border-white/10 text-[#1A1A1A]/15 dark:text-white/15 cursor-not-allowed'
+          }`}
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path fillRule="evenodd" clipRule="evenodd" d="M5.50001 1.93933L6.03034 2.46966L10.8536 7.29288C11.2441 7.68341 11.2441 8.31657 10.8536 8.7071L6.03034 13.5303L5.50001 14.0607L4.43935 13L4.96968 12.4697L9.43935 7.99999L4.96968 3.53032L4.43935 2.99999L5.50001 1.93933Z" />
+          </svg>
+        </button>
+
+        {/* Project counter */}
+        <span className="font-mono text-xs text-[#1A1A1A]/30 dark:text-white/30 self-center ml-2">
+          {projects.length} projects
+        </span>
+      </div>
+
+      {/* Background ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#9B8BC4]/[0.03] rounded-full blur-3xl pointer-events-none" />
     </section>
   );
 };

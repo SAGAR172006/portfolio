@@ -48,9 +48,9 @@ const Hero = () => {
             animationDelay: '1s'
           }}
         />
-        
+
         {/* Floating icons */}
-        <div 
+        <div
           className="absolute top-1/4 left-1/4 opacity-20"
           style={{
             transform: `translate(${parallaxX * 2}px, ${parallaxY * 2 + scrollY * 0.3}px)`,
@@ -59,7 +59,7 @@ const Hero = () => {
         >
           <Code className="text-[#9B8BC4] dark:text-[#B4A4D6] animate-pulse" size={40} />
         </div>
-        <div 
+        <div
           className="absolute bottom-1/4 right-1/4 opacity-20"
           style={{
             transform: `translate(${-parallaxX * 2}px, ${-parallaxY * 2 - scrollY * 0.2}px)`,
@@ -68,7 +68,7 @@ const Hero = () => {
         >
           <Terminal className="text-[#9B8BC4] dark:text-[#B4A4D6] animate-pulse" size={40} />
         </div>
-        <div 
+        <div
           className="absolute top-1/2 right-1/3 opacity-20"
           style={{
             transform: `translate(${parallaxX * 1.5}px, ${parallaxY * 1.5 + scrollY * 0.4}px) rotate(${scrollY * 0.1}deg)`,
@@ -86,11 +86,10 @@ const Hero = () => {
         }}
       >
         <div
-          className={`transform transition-all duration-1000 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}
+          className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}
         >
-          <p 
+          <p
             className="text-[#9B8BC4] dark:text-[#B4A4D6] text-sm md:text-base mb-4 tracking-widest uppercase animate-pulse"
             style={{ fontFamily: "'VT323', monospace" }}
           >
@@ -136,7 +135,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div 
+      <div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:scale-125 transition-transform duration-300"
         onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
       >

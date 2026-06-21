@@ -26,6 +26,7 @@ export const skills = {
 export const projects = [
   {
     id: 1,
+    slug: "focus-flow",
     title: "Focus-Flow",
     subtitle: "Productivity Booster Application",
     description: "A comprehensive full-stack productivity application designed to enhance focus and time management through intelligent workflow optimization. Features include real-time task tracking with drag-and-drop prioritization, a customizable Pomodoro timer with session analytics, and AI-powered productivity insights via Gemini API to help users identify their peak performance patterns and optimize daily routines.",
@@ -41,7 +42,29 @@ export const projects = [
     status: "Mini Project"
   },
   {
+    id: 3,
+    slug: "weirdos",
+    title: "Weirdos",
+    subtitle: "Real-Time Social Deduction Party Game",
+    description: "A real-time multiplayer social deduction party game — Among Us meets Spyfall. Players join rooms, get secret roles (Normie or Weirdo), give one-word hints, vote, and try to expose the Weirdo. No database, no login — just pick a name, share a code, and play.",
+    technologies: ["React 19", "Socket.IO", "FastAPI", "Python", "Tailwind CSS", "Framer Motion", "Radix UI", "CRACO", "Uvicorn"],
+    image: "/images/Recording 2026-03-09 155509.mp4",
+    features: [
+      "Real-time multiplayer via Socket.IO — zero latency room sync across all players",
+      "Secret role assignment each round: Normies know the word, Weirdos must bluff",
+      "One-word hint rounds with turn-based timers and in-game chat during voting",
+      "Voting system with optional anonymous voting to eliminate suspected Weirdos",
+      "Weirdo guess mechanic — correctly guess the secret word to win instantly",
+      "Neon dark UI with Framer Motion animations and glassmorphism cards",
+      "DiceBear Fun Emoji avatars unique per player seed",
+      "Massive word bank with difficulty levels and explicit content filter"
+    ],
+    githubLink: "https://github.com/SAGAR172006/weirdos_sdw_game",
+    status: "Hobby"
+  },
+  {
     id: 2,
+    slug: "fleet-flow",
     title: "FleetFlow",
     subtitle: "Modular Fleet & Logistics Management System",
     description: "A full-stack fleet and logistics management web app built with React, Node.js/Express, and Firebase. Features role-based dashboards for fleet managers, dispatchers, safety officers, and finance analysts — managing vehicles, trips, maintenance, expenses, and analytics in real-time.",
@@ -62,24 +85,43 @@ export const projects = [
     status: "Hackathon"
   },
   {
-    id: 3,
-    title: "Weirdos",
-    subtitle: "Real-Time Social Deduction Party Game",
-    description: "A real-time multiplayer social deduction party game — Among Us meets Spyfall. Players join rooms, get secret roles (Normie or Weirdo), give one-word hints, vote, and try to expose the Weirdo. No database, no login — just pick a name, share a code, and play.",
-    technologies: ["React 19", "Socket.IO", "FastAPI", "Python", "Tailwind CSS", "Framer Motion", "Radix UI", "CRACO", "Uvicorn"],
-    image: "/images/Recording 2026-03-09 155509.mp4",
+    id: 4,
+    slug: "ecogrid",
+    title: "EcoGrid",
+    subtitle: "Quantum-Optimized Energy Distribution",
+    description: "An interactive smart city analytics platform that integrates a Maps API to visualize geographic energy grid networks. Features a dynamic dashboard comparing traditional vs. quantum-optimized carbon outputs, utilizing the Gemini API to translate raw emission data into actionable, real-world environmental impact scenarios and tangible sustainability forecasts.",
+    technologies: ["Python", "Streamlit", "PennyLane (QAOA)", "Maps API (Leaflet/Mapbox)", "Google Gemini API", "Plotly"],
+    image: "/images/ecogrid.png",
     features: [
-      "Real-time multiplayer via Socket.IO — zero latency room sync across all players",
-      "Secret role assignment each round: Normies know the word, Weirdos must bluff",
-      "One-word hint rounds with turn-based timers and in-game chat during voting",
-      "Voting system with optional anonymous voting to eliminate suspected Weirdos",
-      "Weirdo guess mechanic — correctly guess the secret word to win instantly",
-      "Neon dark UI with Framer Motion animations and glassmorphism cards",
-      "DiceBear Fun Emoji avatars unique per player seed",
-      "Massive word bank with difficulty levels and explicit content filter"
+      "Geospatial energy grid visualization via Maps API",
+      "Dynamic dashboard comparing traditional vs. quantum-optimized carbon outputs",
+      "QAOA routing optimization with multi-qubit state space mapping",
+      "Gemini API integration for actionable sustainability forecasts",
+      "Quantum computing simulations combined with spatial visualizations",
+      "Real-world environmental impact scenario generation"
     ],
-    githubLink: "https://github.com/SAGAR172006/weirdos_sdw_game",
-    status: "Hobby"
+    githubLink: "https://github.com/SAGAR172006/quantum-opt",
+    status: "Hackathon",
+    experience: "Mapped complex geospatial coordinate data into multi-qubit state spaces for QAOA routing optimization. Gained deep experience in combining quantum computing simulations, spatial visualizations, and LLM orchestration to transform abstract scientific data into clear, practical metrics for urban planning."
+  },
+  {
+    id: 5,
+    slug: "ami-gcem",
+    title: "AMI at GCEM",
+    subtitle: "Agentic AI Workflow Platform",
+    description: "Built collaboratively alongside three teammates, this agentic AI platform automates the generation of personalized study modules. It leverages n8n workflows to orchestrate complex educational pipelines efficiently.",
+    technologies: ["React", "Node.js", "LangChain", "Google AI Studio"],
+    image: "/images/ami-gcem.mp4",
+    features: [
+      "Automated generation of personalized study modules",
+      "n8n workflow orchestration for complex educational pipelines",
+      "Multi-agent architecture integrating LLMs for workflow automation",
+      "Optimized to run reliably on free-tier infrastructure",
+      "Open-source library prioritization for cost efficiency"
+    ],
+    githubLink: "https://github.com/SAGAR172006/gcem-hacks",
+    status: "Collaborative",
+    experience: "Designed robust multi-agent architectures that integrate LLMs for seamless workflow automation. Prioritized the use of open-source libraries and optimized the infrastructure to operate reliably on free-tier tools without sacrificing performance."
   }
 ];
 

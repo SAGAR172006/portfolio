@@ -37,9 +37,11 @@
   }
 }
 
-/* Smooth Scrolling */
+/* Smooth scrolling — DISABLED globally; enabled per element via JS to avoid
+   fighting the sticky scroll-jack sections. */
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; — intentionally removed */
+  overflow-anchor: none;
 }
 
 /* Custom Scrollbar */
