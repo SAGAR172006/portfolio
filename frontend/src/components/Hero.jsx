@@ -30,7 +30,7 @@ const Hero = () => {
   const parallaxY = (mousePosition.y - window.innerHeight / 2) / 50;
 
   return (
-    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden bg-[#FAF7F0] dark:bg-[#1a1526] transition-colors duration-500">
+    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-x-hidden overflow-y-visible bg-[#FAF7F0] dark:bg-[#1a1526] transition-colors duration-500">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div

@@ -160,7 +160,7 @@ const Projects = () => {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative bg-[#FAF7F0] dark:bg-[#0a0a0a] py-16 md:py-24 overflow-hidden transition-colors duration-500"
+      className="relative z-10 bg-[#FAF7F0]/70 dark:bg-[#0a0a0a]/75 backdrop-blur-lg py-16 md:py-24 overflow-hidden transition-colors duration-500"
     >
       {/* ── Header ── */}
       <div
